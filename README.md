@@ -1,4 +1,4 @@
-##[Live Demo](https://thth13.github.com/)
+[Live Demo](https://thth13.github.io/)
 
 ## Available Scripts
 
