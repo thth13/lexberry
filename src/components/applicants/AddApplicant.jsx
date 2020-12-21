@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { addApplicant } from '../../actions/applicant';
-import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { makeStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(() => ({
   formTitle: {
@@ -21,7 +18,6 @@ const useStyles = makeStyles(() => ({
   textField: {
     width: '48%',
     marginBottom: 10,
-    // paddingLeft: 10,
   },
   textFieldGroup: {
     display: 'flex',

@@ -61,7 +61,7 @@ const CustomerSelect = ({
     if (!selected) {
       removeCustomer();
     }
-  }, [selected]);
+  }, [selected, removeCustomer]);
 
   useEffect(() => {
     getDefaultCustomers();

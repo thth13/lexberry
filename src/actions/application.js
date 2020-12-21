@@ -9,8 +9,6 @@ export const createApplication = () => (dispatch, getState) => {
     newApplicants: applicant.newApplicants,
   };
 
-  console.log(data);
-
   dispatch({
     type: CREATE_APPLICATION,
     payload: data,
