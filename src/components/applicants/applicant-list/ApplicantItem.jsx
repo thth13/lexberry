@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   typography: {
     marginRight: 5,
   },
@@ -17,6 +17,11 @@ const useStyles = makeStyles(() => ({
   applicantItem: {
     display: 'flex',
     alignItems: 'center',
+  },
+  [theme.breakpoints.down('xs')]: {
+    applicantItem: {
+      flexDirection: 'column',
+    },
   },
 }));
 

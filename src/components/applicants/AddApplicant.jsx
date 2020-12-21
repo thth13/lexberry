@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     marginBottom: 10,
   },
   countries: {
-    width: 300,
+    maxWidth: 300,
     marginBottom: 10,
   },
   addButton: {

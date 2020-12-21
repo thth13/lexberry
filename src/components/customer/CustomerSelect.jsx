@@ -14,7 +14,7 @@ import { getApplicants } from '../../actions/applicant';
 
 const useStyles = makeStyles(() => ({
   autocomplete: {
-    width: 300,
+    maxWidth: 300,
     marginBottom: 15,
   },
 }));

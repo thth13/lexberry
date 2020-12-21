@@ -16,10 +16,6 @@ const useStyles = makeStyles(() => ({
   name: {
     fontWeight: 'bolder',
   },
-  autocomplete: {
-    width: 300,
-    marginBottom: 15,
-  },
   addButton: {
     margin: '15px 0',
   },
