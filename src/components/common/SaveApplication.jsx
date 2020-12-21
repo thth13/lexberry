@@ -1,5 +1,7 @@
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { createApplication } from '../../actions/application';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -8,14 +10,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SaveApplication = () => {
+const SaveApplication = ({ createApplication }) => {
   const classes = useStyles();
 
+  const handleClick = () => {
+    createApplication();
+  };
+
   return (
-    <Button className={classes.button} color="primary" variant="contained">
+    <Button
+      onClick={handleClick}
+      className={classes.button}
+      color="primary"
+      variant="contained"
+    >
       Зберегти заявку
     </Button>
   );
 };
 
-export default SaveApplication;
+export default connect(null, { createApplication })(SaveApplication);
