@@ -1,4 +1,9 @@
-import { SET_APPLICANTS, ADD_APPLICANT } from '../actions/types';
+import {
+  SET_APPLICANTS,
+  ADD_APPLICANT,
+  DELETE_APPLICANT,
+  CLEAR_APPLICANTS,
+} from '../actions/types';
 
 const initialState = {
   applicants: [],
@@ -16,8 +21,24 @@ export default function applicant(state = initialState, action) {
       };
     case ADD_APPLICANT: {
       return {
-        applicant: [...state.applicants, payload],
+        applicants: [...state.applicants, payload],
         newApplicants: [...state.newApplicants, payload],
+      };
+    }
+    case DELETE_APPLICANT: {
+      return {
+        applicants: state.applicants.filter(
+          (applicant) => applicant.id !== payload
+        ),
+        newApplicants: state.newApplicants.filter(
+          (applicant) => applicant.id !== payload
+        ),
+      };
+    }
+    case CLEAR_APPLICANTS: {
+      return {
+        applicants: [],
+        newApplicants: [],
       };
     }
     default:
