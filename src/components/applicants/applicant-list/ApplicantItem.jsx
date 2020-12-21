@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     marginRight: 5,
   },
+  typographyName: {
+    fontWeight: 'bolder',
+    marginRight: 5,
+  },
   checkbox: {
     paddingLeft: 0,
   },
@@ -18,8 +22,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
+  applicantInfoBlock: {
+    display: 'flex',
+  },
   [theme.breakpoints.down('xs')]: {
-    applicantItem: {
+    applicantInfoBlock: {
       flexDirection: 'column',
     },
   },
@@ -46,10 +53,14 @@ const ApplicantItem = ({ applicant, deleteApplicant }) => {
         className={classes.checkbox}
         color="primary"
       />
-      <Typography className={classes.typography}>{applicant.name}</Typography>
-      <Typography className={classes.typography}>
-        {applicant.address.address}
-      </Typography>
+      <div className={classes.applicantInfoBlock}>
+        <Typography className={classes.typographyName}>
+          {applicant.name}
+        </Typography>
+        <Typography className={classes.typography}>
+          {applicant.address.address}
+        </Typography>
+      </div>
       <IconButton onClick={handleDelete}>
         <HighlightOffIcon />
       </IconButton>
