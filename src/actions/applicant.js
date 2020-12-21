@@ -7,7 +7,6 @@ export const getApplicants = (customerId) => (dispatch) => {
       params: { 'filter[client:id]': customerId },
     })
     .then((res) => {
-      console.log(res);
       dispatch({
         type: SET_APPLICANTS,
         payload: res.data.items,

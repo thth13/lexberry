@@ -29,7 +29,7 @@ const CustomerSelect = ({
   getApplicants,
 }) => {
   const classes = useStyles();
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState(null);
 
   const onChange = (e, value) => {
@@ -74,6 +74,7 @@ const CustomerSelect = ({
       onChange={changeCustomer}
       options={customers}
       getOptionLabel={(customer) => customer.label}
+      getOptionSelected={(customer) => customer.label === selected.label}
       inputValue={inputValue}
       onInputChange={onChange}
       renderInput={(params) => (

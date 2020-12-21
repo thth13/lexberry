@@ -3,7 +3,7 @@ import {
   SET_DEFAULT_CUSTOMERS,
   FILTER_CUSTOMERS,
   CLEAR_CUSTOMER,
-  CLEAR_FILTER,
+  CLEAR_FILTER_CUSTOMERS,
   SET_CUSTOMER,
   CLEAR_APPLICANTS,
 } from './types';
@@ -42,7 +42,7 @@ export const filterCustomers = (searchName) => (dispatch) => {
 
 export const clearFilterCustomers = () => (dispatch) => {
   dispatch({
-    type: CLEAR_FILTER,
+    type: CLEAR_FILTER_CUSTOMERS,
   });
 };
 
