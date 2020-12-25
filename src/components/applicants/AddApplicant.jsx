@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { addApplicant } from '../../actions/applicant';
@@ -67,7 +68,7 @@ const AddApplicant = ({ addApplicant, setIsFormOpened }) => {
     e.preventDefault();
     addApplicant({
       ...fields,
-      id: Date.now(),
+      id: Date.now().toString(),
       personType,
       address: {
         country,
@@ -159,6 +160,11 @@ const AddApplicant = ({ addApplicant, setIsFormOpened }) => {
       </Button>
     </form>
   );
+};
+
+AddApplicant.propTypes = {
+  addApplicant: PropTypes.func.isRequired,
+  setIsFormOpened: PropTypes.func.isRequired,
 };
 
 export default connect(null, { addApplicant })(AddApplicant);

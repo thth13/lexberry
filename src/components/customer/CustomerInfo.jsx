@@ -1,4 +1,5 @@
 import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
 
 const CustomerInfo = ({ customer: { name, contactPerson, phone } }) => (
   <>
@@ -7,5 +8,13 @@ const CustomerInfo = ({ customer: { name, contactPerson, phone } }) => (
     <Typography>тел. {phone}</Typography>
   </>
 );
+
+CustomerInfo.propTypes = {
+  customer: PropTypes.shape({
+    name: PropTypes.string,
+    contactPerson: PropTypes.string,
+    phone: PropTypes.string,
+  }).isRequired,
+};
 
 export default CustomerInfo;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { deleteApplicant } from '../../../actions/applicant';
@@ -66,6 +67,17 @@ const ApplicantItem = ({ applicant, deleteApplicant }) => {
       </IconButton>
     </div>
   );
+};
+
+ApplicantItem.propTypes = {
+  applicant: PropTypes.shape({
+    name: PropTypes.string,
+    address: PropTypes.shape({
+      address: PropTypes.string,
+    }),
+    id: PropTypes.string,
+  }).isRequired,
+  deleteApplicant: PropTypes.func.isRequired,
 };
 
 export default connect(null, { deleteApplicant })(ApplicantItem);

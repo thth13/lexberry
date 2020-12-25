@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
@@ -89,9 +90,18 @@ const CustomerSelect = ({
 };
 
 const mapStateToProps = (state) => ({
-  customer: state.customer.customer,
   customers: state.customer.customers,
 });
+
+CustomerSelect.propTypes = {
+  customers: PropTypes.array,
+  getDefaultCustomers: PropTypes.func.isRequired,
+  clearFilterCustomers: PropTypes.func.isRequired,
+  setCustomer: PropTypes.func.isRequired,
+  filterCustomers: PropTypes.func.isRequired,
+  removeCustomer: PropTypes.func.isRequired,
+  getApplicants: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, {
   getDefaultCustomers,

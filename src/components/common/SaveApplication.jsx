@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -27,6 +28,10 @@ const SaveApplication = ({ createApplication }) => {
       Зберегти заявку
     </Button>
   );
+};
+
+SaveApplication.propTypes = {
+  createApplication: PropTypes.func.isRequired,
 };
 
 export default connect(null, { createApplication })(SaveApplication);

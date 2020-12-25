@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import SaveApplication from '../common/SaveApplication';
@@ -29,5 +30,13 @@ const CustomerPanel = ({ customer }) => {
 const mapStateToProps = (state) => ({
   customer: state.customer.customer,
 });
+
+CustomerPanel.propTypes = {
+  customer: PropTypes.shape({
+    name: PropTypes.string,
+    contactPerson: PropTypes.string,
+    phone: PropTypes.string,
+  }),
+};
 
 export default connect(mapStateToProps, null)(CustomerPanel);
