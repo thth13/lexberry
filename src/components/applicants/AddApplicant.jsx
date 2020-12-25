@@ -59,9 +59,7 @@ const AddApplicant = ({ addApplicant, setIsFormOpened }) => {
   };
 
   const changeFieldValue = (e) => {
-    setFields((fields) => {
-      return { ...fields, [e.target.name]: e.target.value };
-    });
+    setFields({ ...fields, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
