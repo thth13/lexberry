@@ -1,7 +1,14 @@
 import axios from 'axios';
-import { SET_APPLICANTS, ADD_APPLICANT, DELETE_APPLICANT } from './types';
+import {
+  SET_APPLICANTS,
+  ADD_APPLICANT,
+  DELETE_APPLICANT,
+  SET_APPLICANTS_ISLOADING,
+} from './types';
 
 export const getApplicants = (customerId) => (dispatch) => {
+  dispatch({ type: SET_APPLICANTS_ISLOADING });
+
   axios
     .get(`https://lexberry.com.ua/api/v1/applicants`, {
       params: { 'filter[client:id]': customerId },

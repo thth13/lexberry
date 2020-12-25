@@ -4,12 +4,14 @@ import {
   CLEAR_CUSTOMER,
   CLEAR_FILTER_CUSTOMERS,
   SET_CUSTOMER,
+  SET_CUSTOMERS_ISLOADING,
 } from '../actions/types';
 
 const initialState = {
   defaultCustomers: [],
   customers: [],
   customer: null,
+  customersIsLoading: false,
 };
 
 export default function customer(state = initialState, action) {
@@ -21,11 +23,13 @@ export default function customer(state = initialState, action) {
         ...state,
         defaultCustomers: payload,
         customers: payload,
+        customersIsLoading: false,
       };
     case FILTER_CUSTOMERS:
       return {
         ...state,
         customers: payload,
+        customersIsLoading: false,
       };
     case CLEAR_FILTER_CUSTOMERS:
       return {
@@ -42,6 +46,12 @@ export default function customer(state = initialState, action) {
         ...state,
         customer: null,
       };
+    case SET_CUSTOMERS_ISLOADING: {
+      return {
+        ...state,
+        customersIsLoading: true,
+      };
+    }
     default:
       return state;
   }

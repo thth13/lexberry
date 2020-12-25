@@ -3,11 +3,13 @@ import {
   ADD_APPLICANT,
   DELETE_APPLICANT,
   CLEAR_APPLICANTS,
+  SET_APPLICANTS_ISLOADING,
 } from '../actions/types';
 
 const initialState = {
   applicants: [],
   newApplicants: [],
+  applicantsIsLoading: false,
 };
 
 export default function applicant(state = initialState, action) {
@@ -18,6 +20,7 @@ export default function applicant(state = initialState, action) {
       return {
         ...state,
         applicants: payload,
+        applicantsIsLoading: false,
       };
     case ADD_APPLICANT: {
       return {
@@ -39,6 +42,12 @@ export default function applicant(state = initialState, action) {
       return {
         applicants: [],
         newApplicants: [],
+      };
+    }
+    case SET_APPLICANTS_ISLOADING: {
+      return {
+        ...state,
+        applicantsIsLoading: true,
       };
     }
     default:

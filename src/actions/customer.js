@@ -6,9 +6,12 @@ import {
   CLEAR_FILTER_CUSTOMERS,
   SET_CUSTOMER,
   CLEAR_APPLICANTS,
+  SET_CUSTOMERS_ISLOADING,
 } from './types';
 
 export const getDefaultCustomers = () => (dispatch) => {
+  dispatch({ type: SET_CUSTOMERS_ISLOADING });
+
   axios
     .get('https://lexberry.com.ua/api/v1/clients')
     .then((res) => {
@@ -25,6 +28,8 @@ export const getDefaultCustomers = () => (dispatch) => {
 };
 
 export const filterCustomers = (searchName) => (dispatch) => {
+  dispatch({ type: SET_CUSTOMERS_ISLOADING });
+
   axios
     .get(`https://lexberry.com.ua/api/v1/clients`, {
       params: { 'search[name]': searchName },

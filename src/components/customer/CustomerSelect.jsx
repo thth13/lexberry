@@ -22,6 +22,7 @@ const useStyles = makeStyles(() => ({
 
 const CustomerSelect = ({
   customers,
+  isLoading,
   getDefaultCustomers,
   clearFilterCustomers,
   setCustomer,
@@ -72,6 +73,7 @@ const CustomerSelect = ({
     <Autocomplete
       className={classes.autocomplete}
       value={selected}
+      loading={isLoading}
       onChange={changeCustomer}
       options={customers}
       getOptionLabel={(customer) => customer.label}
@@ -91,10 +93,12 @@ const CustomerSelect = ({
 
 const mapStateToProps = (state) => ({
   customers: state.customer.customers,
+  isLoading: state.customer.customersIsLoading,
 });
 
 CustomerSelect.propTypes = {
   customers: PropTypes.array,
+  isLoading: PropTypes.bool.isRequired,
   getDefaultCustomers: PropTypes.func.isRequired,
   clearFilterCustomers: PropTypes.func.isRequired,
   setCustomer: PropTypes.func.isRequired,
