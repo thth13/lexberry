@@ -24,12 +24,14 @@ export default function applicant(state = initialState, action) {
       };
     case ADD_APPLICANT: {
       return {
+        ...state,
         applicants: [...state.applicants, payload],
         newApplicants: [...state.newApplicants, payload],
       };
     }
     case DELETE_APPLICANT: {
       return {
+        ...state,
         applicants: state.applicants.filter(
           (applicant) => applicant.id !== payload
         ),
@@ -40,6 +42,7 @@ export default function applicant(state = initialState, action) {
     }
     case CLEAR_APPLICANTS: {
       return {
+        ...state,
         applicants: [],
         newApplicants: [],
       };
